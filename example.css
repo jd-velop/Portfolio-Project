@@ -22,7 +22,11 @@ html {
 
 body {
   min-height: 100vh; /* vh means viewport height. setting to 100 means it will always take up 100% of the height of the viewport */
-  background: linear-gradient(var(--primary-color), var(--secondary-color));
+  background: linear-gradient(
+    to bottom,
+    var(--primary-color),
+    var(--accent-color)
+  );
 }
 
 nav {
@@ -34,7 +38,7 @@ nav {
   gap: 30px;
   border-bottom: var(--secondary-text-color) 1px solid;
   transition: 200ms ease;
-  z-index: 2; /* nav should be on top of everything */
+  z-index: 3; /* nav should be on top of everything */
   animation: nav-enter 1s ease-out;
 }
 
@@ -120,7 +124,7 @@ header img:active {
 }
 
 header h1 {
-  margin-top: 200px;
+  margin-top: 150px;
   font-size: 4rem; /* 1 rem = root em = root font size = 14pt */
 }
 
@@ -177,6 +181,7 @@ header .read-more:hover {
 .skill-container {
   width: 400px;
   max-width: 100%;
+  background-color: var(--secondary-color);
   border: 10px solid var(--primary-color);
   transition: 250ms ease;
 }
@@ -184,6 +189,7 @@ header .read-more:hover {
 .skill-container:hover {
   border: 10px solid var(--accent-color);
   transform: scale(1.2);
+  z-index: 2; /* bring hovered skill container to front */
 }
 
 .skill-container h3 {
@@ -210,6 +216,7 @@ header .read-more:hover {
 
 #projects-section {
   padding: 100px;
+  background-color: var(--primary-color);
 }
 
 #projects-section h2 {
@@ -280,7 +287,7 @@ details .project-link:hover {
 
 footer {
   background-color: var(--secondary-color);
-  padding: 100px 20px;
+  padding: 50px 20px;
 }
 
 footer .grid-container {
@@ -294,6 +301,7 @@ footer .grid-container {
 
 footer #at-symbol {
   color: var(--secondary-text-color);
+  font-family: "Times New Roman", Times, serif;
   font-size: 250pt;
   transition: 500ms ease;
 }
@@ -343,6 +351,11 @@ footer a:hover {
 
   header img {
     display: none;
+  }
+
+  .skill-container:hover {
+    border: 10px solid var(--accent-color);
+    transform: scale(1.1);
   }
 
   #skill-section {
