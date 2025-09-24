@@ -122,7 +122,6 @@ header img:active {
 header h1 {
   margin-top: 200px;
   font-size: 4rem; /* 1 rem = root em = root font size = 14pt */
-
 }
 
 header h2 {
@@ -179,12 +178,12 @@ header .read-more:hover {
   width: 400px;
   max-width: 100%;
   border: 10px solid var(--primary-color);
-  transition: 300ms ease;
+  transition: 250ms ease;
 }
 
 .skill-container:hover {
   border: 10px solid var(--accent-color);
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 
 .skill-container h3 {
