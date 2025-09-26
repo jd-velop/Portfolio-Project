@@ -157,7 +157,7 @@ header p {
   color: var(--secondary-text-color);
 }
 
-header .read-more {
+header .see-more {
   display: inline-block;
   background-color: var(--accent-color);
   color: white;
@@ -171,7 +171,7 @@ header .read-more {
   cursor: pointer; /* cursor becomes pointer on hover */
 }
 
-header .read-more:hover {
+header .see-more:hover {
   /* hover effect for read more button */
   background-color: var(--secondary-color);
   color: var(--accent-color);
