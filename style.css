@@ -135,6 +135,24 @@ header h2 {
   font-weight: 300;
 }
 
+#typewriter::after {
+  content: "|";
+  color: var(--accent-color);
+  animation: blink 1s infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
 header p {
   color: var(--secondary-text-color);
 }

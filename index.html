@@ -17,7 +17,7 @@
       <img src="images/half-man.jpg" alt="profile image" />
       <div class="container">
         <h1>Jackson "J.D." Otis</h1>
-        <h2>Full Stack & Web Developer</h2>
+        <h2 id="typewriter"></h2>
         <p>
             I'm a passionate developer with a strong foundation in both front-end and back-end technologies. I enjoy building user-friendly web applications, and solving problems through code. My experience ranges from creating interactive interfaces with HTML, CSS, and JavaScript to developing server-side solutions in Python and Java. 
         </p>
@@ -35,9 +35,9 @@
         <div class="skill-container">
           <h3>Front-End</h3>
           <ul>
-            <li>HTML, CSS <progress max="100" value="85"></progress></li>
-            <li>JavaScript <progress max="100" value="75"></progress></li>
-            <li>React.js <progress max="100" value="60"></progress></li>
+            <li>HTML, CSS <progress max="100" value="65"></progress></li>
+            <li>JavaScript <progress max="100" value="55"></progress></li>
+            <li>React.js <progress max="100" value="0"></progress></li>
           </ul>
         </div>
         <div class="skill-container">
@@ -80,16 +80,13 @@
         <details>
           <summary>
             <span class="number">2</span>
-            <h3>Project 2</h3>
+            <h3>Portfolio Website</h3>
           </summary>
           <div class="text-container">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-              distinctio veniam quo quibusdam fugit sapiente perspiciatis
-              repellat nisi dolorum beatae, dolores in! Esse soluta, repellat
-              delectus debitis saepe laborum earum.
+              Placeholder project for now, but this is the website you are currently viewing! Built using HTML and CSS, with a bit of JavaScript for the typewriter effect. The site is designed to be responsive and user-friendly, showcasing my skills, projects, and contact information. It serves as a personal portfolio to highlight my work and experience as a student developer.
             </p>
-            <a href="" class="project-link">Visit Website</a>
+            <a href="https://github.com/jd-velop/Portfolio-Project" target="https://github.com/jd-velop/Portfolio-Project" class="project-link">Visit Repo</a>
           </div>
         </details>
         <details>
@@ -143,5 +140,65 @@
         </div>
       </div>
     </footer>
+    
+    <script>
+      // exists only for typewriter effect
+      document.addEventListener('DOMContentLoaded', function() {
+        const typewriterElement = document.getElementById('typewriter');
+        const titles = [
+          'Full Stack Developer',
+          'Web Developer',
+          'Frontend Developer',
+          'Backend Developer',
+          'Software Engineer',
+          'Handsome Man',
+          'Click My Photo!'
+        ];
+        
+        let currentTitleIndex = 0;
+        let currentCharIndex = 0;
+        let isDeleting = false;
+        let isWaiting = false;
+        
+        function typeWriter() {
+          const currentTitle = titles[currentTitleIndex];
+          
+          if (isWaiting) {
+            setTimeout(typeWriter, 2000); // wait 2 seconds before starting to delete
+            isWaiting = false;
+            isDeleting = true;
+            return;
+          }
+          
+          if (isDeleting) {
+            // Remove characters one at a time
+            typewriterElement.textContent = currentTitle.substring(0, currentCharIndex - 1);
+            currentCharIndex--;
+            
+            if (currentCharIndex === 0) {
+              isDeleting = false;
+              currentTitleIndex = (currentTitleIndex + 1) % titles.length; // loop back to first title
+              setTimeout(typeWriter, 500); // wait half a second before typing next title
+              return;
+            }
+          } else {
+            // Add characters
+            typewriterElement.textContent = currentTitle.substring(0, currentCharIndex + 1);
+            currentCharIndex++;
+            
+            if (currentCharIndex === currentTitle.length) {
+              isWaiting = true;
+            }
+          }
+          
+          // Typing speed: faster when deleting, slower when typing
+          const speed = isDeleting ? 50 : 100;
+          setTimeout(typeWriter, speed);
+        }
+        
+        // Start the animation after a short delay
+        setTimeout(typeWriter, 1000);
+      });
+    </script>
   </body>
 </html>
